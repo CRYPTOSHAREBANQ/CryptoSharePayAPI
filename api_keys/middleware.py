@@ -185,6 +185,7 @@ class APIKeyVerification:
             print(path_info)
             if not "ping/" in path_info and not "cryptoapisverifydomain/" in path_info:
                 api_key = headers.get("HTTP_X_API_KEY", None)
+                print(headers)
                 api_key_verification = self.verify_api_key(api_key)
                 if api_key_verification:
                     return api_key_verification
