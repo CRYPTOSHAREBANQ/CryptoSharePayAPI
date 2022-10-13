@@ -120,6 +120,7 @@ class CreateTransaction(APIView):
 
         digital_currency_amount_usd = Decimal(digital_currency_amount) / digital_currency_object.exchange_rate 
 
+        cryptocurrency_object.exchange_rate = 50
         cryptocurrency_amount = digital_currency_amount_usd / cryptocurrency_object.exchange_rate
         # cryptocurrency_amount = digital_currency_amount_usd / Decimal(41.44)
 
