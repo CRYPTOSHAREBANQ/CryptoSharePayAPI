@@ -105,9 +105,6 @@ class CryptoApisUtils:
         #             return None, error
     
     def release_address(self, address_object):
-        address_object.status = "AVAILABLE"
-        address_object.api_key = None
-        address_object.save()
 
         address_subscription = address_object.subscription_id
 
@@ -124,6 +121,10 @@ class CryptoApisUtils:
             except Exception as e:
                 error = "Error releasing address. Please try again later."
                 return error
+        
+        address_object.status = "AVAILABLE"
+        address_object.api_key = None
+        address_object.save()
         
         return None
 

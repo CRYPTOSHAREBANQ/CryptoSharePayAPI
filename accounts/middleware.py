@@ -64,7 +64,8 @@ class AccountVerification:
                     return HttpResponse(
                         str({
                         "status": "ERROR",
-                        "message": F"Your country doesnt need to create an account, please go to: {NO_ACCOUNT_REDIRECT_URL}, or go to CryptosharePay Site -> Payments"
+                        # "message": F"Your country doesnt need to create an account, please go to: {NO_ACCOUNT_REDIRECT_URL}, or go to CryptosharePay Site -> Payments"
+                        "message": F"Your country is currently not allowed to create an account."
                         }), status=400)
 
                 if User.objects.filter(email = customer_info["email"].lower()).exists():
